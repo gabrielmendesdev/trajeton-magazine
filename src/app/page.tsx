@@ -1,5 +1,9 @@
-import Image from 'next/image'
+import Component from './components/TestTailwind'
 
 export default function Home() {
-  return <div></div>
+  return (
+    <div>
+      <Component />
+    </div>
+  )
 }
