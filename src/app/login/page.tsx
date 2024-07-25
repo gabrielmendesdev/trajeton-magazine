@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react'
 export default function Login() {
   const [isMobile, setIsMobile] = useState(false)
 
+  //Verifica o tamanho atual da viewport para adaptar alguns estilos e imagens baseado na sua largura
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768)
