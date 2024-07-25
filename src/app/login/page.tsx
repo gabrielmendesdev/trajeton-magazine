@@ -1,16 +1,27 @@
 'use client'
 
+import './style.css'
 import { Form } from './form'
 import TrajetonBanner from '../assets/trajeton.svg'
 import TrajetonBannerMobile from '../assets/trajeton-mobile.svg'
 import Image from 'next/image'
-import './style.css'
 import { useEffect, useState } from 'react'
+import Cookies from 'js-cookie'
+import { useRouter } from 'next/navigation'
 
 export default function Login() {
   const [isMobile, setIsMobile] = useState(false)
+  const router = useRouter()
 
-  //Verifica o tamanho atual da viewport para adaptar alguns estilos e imagens baseado na sua largura
+  // Verifica se o cookie de autenticação está presente e redireciona se necessário
+  useEffect(() => {
+    const authToken = Cookies.get('auth_token')
+    if (authToken === 'fwqwq6565165qfw651f6515fwq6515') {
+      router.push('/') // Redireciona para a página inicial se o token for encontrado
+    }
+  }, [router])
+
+  // Verifica o tamanho atual da viewport para adaptar alguns estilos e imagens baseado na sua largura
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768)
