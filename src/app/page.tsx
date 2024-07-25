@@ -1,9 +1,7 @@
-import Component from './components/TestTailwind'
-
-export default function Home() {
+export default function Login() {
   return (
     <div>
-      <Component />
+      <p>HOMEPAGE</p>
     </div>
   )
 }
