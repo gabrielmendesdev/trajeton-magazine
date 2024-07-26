@@ -33,7 +33,7 @@ export const Form: React.FC = (): React.ReactNode => {
     e.preventDefault()
     let valid = true
 
-    if (emailValidator(email!)) {
+    if (!emailValidator(email)) {
       setEmailError(
         'E-mail inválido. Insira um endereço de e-mail no formato correto'
       )
