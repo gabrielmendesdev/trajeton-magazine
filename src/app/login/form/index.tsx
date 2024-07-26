@@ -3,13 +3,15 @@ import { Button, Checkbox, Label, TextInput } from 'flowbite-react'
 import { useRouter } from 'next/navigation'
 import Cookies from 'js-cookie'
 import { useState } from 'react'
+import { useRecoverPasswordModal } from '@/app/context/recoverPasswordModal'
 
-export function Form() {
+export const Form: React.FC = (): React.ReactNode => {
   const router = useRouter()
 
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [remember, setRemember] = useState(false)
+  const { openModal } = useRecoverPasswordModal()
 
   const user = {
     email: 'usertest1@mail.com',
@@ -67,7 +69,10 @@ export function Form() {
         />
         <Label htmlFor="remember">Lembrar login</Label>
       </div>
-      <Text className="text-blue-600 cursor-pointer border-b border-transparent hover:border-blue-500 hover:border-b w-max">
+      <Text
+        onClick={openModal}
+        className="text-blue-600 cursor-pointer border-b border-transparent hover:border-blue-500 hover:border-b w-max"
+      >
         Lembrar senha
       </Text>
       <Button type="submit">Submit</Button>

@@ -8,6 +8,8 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
+import { ModalProvider } from '../context/recoverPasswordModal'
+import { RecoverPasswordModal } from './recoverPasswordModal'
 
 export default function Login() {
   const [isMobile, setIsMobile] = useState(false)
@@ -38,19 +40,22 @@ export default function Login() {
   }, [])
 
   return (
-    <div className="w-dvw h-dvh grid grid-cols-1 md:grid-cols-2">
-      <div className="flex items-center justify-center order-2 md:order-1 mb-auto md:mb-0">
-        <Form />
+    <ModalProvider>
+      <div className="w-dvw h-dvh grid grid-cols-1 md:grid-cols-2">
+        <div className="flex items-center justify-center order-2 md:order-1 mb-auto md:mb-0">
+          <Form />
+        </div>
+        <div
+          className={`flex items-center justify-center order-1 md:order-2 ${isMobile ? 'bg-white' : 'banner-background'}`}
+        >
+          <Image
+            src={isMobile ? TrajetonBannerMobile : TrajetonBanner}
+            alt=""
+            className="banner"
+          />
+        </div>
       </div>
-      <div
-        className={`flex items-center justify-center order-1 md:order-2 ${isMobile ? 'bg-white' : 'banner-background'}`}
-      >
-        <Image
-          src={isMobile ? TrajetonBannerMobile : TrajetonBanner}
-          alt=""
-          className="banner"
-        />
-      </div>
-    </div>
+      <RecoverPasswordModal show={false} />
+    </ModalProvider>
   )
 }
