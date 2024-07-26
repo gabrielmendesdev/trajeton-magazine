@@ -15,7 +15,9 @@ const Home = () => {
   return (
     <div>
       <p>HOMEPAGE</p>
-      <button onClick={logout}>Logout</button>
+      <button onClick={logout} className="bg-red-500">
+        Logout
+      </button>
     </div>
   )
 }

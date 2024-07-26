@@ -1,8 +1,10 @@
+'use client'
+
+import React, { useState } from 'react'
 import Text from '@/app/components/Text'
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react'
 import { useRouter } from 'next/navigation'
 import Cookies from 'js-cookie'
-import { useState } from 'react'
 import { useRecoverPasswordModal } from '@/app/context/recoverPasswordModal'
 
 export const Form: React.FC = (): React.ReactNode => {
@@ -11,23 +13,55 @@ export const Form: React.FC = (): React.ReactNode => {
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [remember, setRemember] = useState(false)
+  const [emailError, setEmailError] = useState<string>('')
+  const [passwordError, setPasswordError] = useState<string>('')
   const { openModal } = useRecoverPasswordModal()
 
   const user = {
     email: 'usertest1@mail.com',
-    password: 'pass12345'
+    password: 'Pass1234@'
+  }
+
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+  }
+
+  const validatePassword = (password: string): boolean => {
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/
+    return passwordRegex.test(password)
   }
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
-    console.log(email)
-    console.log(password)
-    // Verificar credenciais (substitua pela sua lógica de autenticação real)
-    if (email === user.email && password === user.password) {
+    let valid = true
+
+    if (!validateEmail(email)) {
+      setEmailError(
+        'E-mail inválido. Insira um endereço de e-mail no formato correto'
+      )
+      valid = false
+    } else {
+      setEmailError('')
+    }
+
+    if (!validatePassword(password)) {
+      setPasswordError(
+        'Senha inválida. Verifique se a senha tem pelo menos 8 caracteres, com letras maiúsculas, minúsculas, números e caracteres especiais, e tente novamente.'
+      )
+      valid = false
+    } else {
+      setPasswordError('')
+    }
+
+    if (valid && email === user.email && password === user.password) {
       Cookies.set('auth_token', 'fwqwq6565165qfw651f6515fwq6515')
       router.push('/')
-    } else {
-      alert('Credenciais inválidas')
+    } else if (valid) {
+      setPasswordError(
+        'Senha inválida. Verifique se a senha tem pelo menos 8 caracteres, com letras maiúsculas, minúsculas, números e caracteres especiais, e tente novamente.'
+      )
     }
   }
 
@@ -46,6 +80,7 @@ export const Form: React.FC = (): React.ReactNode => {
           required
           onChange={(e) => setEmail(e.target.value)}
         />
+        {emailError && <Text className="text-red-600">{emailError}</Text>}
       </div>
       <div>
         <div className="mb-2 block">
@@ -60,6 +95,7 @@ export const Form: React.FC = (): React.ReactNode => {
           required
           onChange={(e) => setPassword(e.target.value)}
         />
+        {passwordError && <Text className="text-red-600">{passwordError}</Text>}
       </div>
       <div className="flex items-center gap-2">
         <Checkbox
@@ -75,7 +111,9 @@ export const Form: React.FC = (): React.ReactNode => {
       >
         Lembrar senha
       </Text>
-      <Button type="submit">Submit</Button>
+      <Button type="submit" className="bg-orange-500">
+        Entrar
+      </Button>
     </form>
   )
 }
