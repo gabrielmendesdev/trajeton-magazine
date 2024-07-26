@@ -6,6 +6,7 @@ import { Button, Checkbox, Label, TextInput } from 'flowbite-react'
 import { useRouter } from 'next/navigation'
 import Cookies from 'js-cookie'
 import { useRecoverPasswordModal } from '@/app/context/recoverPasswordModal'
+import { emailValidator } from '@/app/utils/emailValidator'
 
 export const Form: React.FC = (): React.ReactNode => {
   const router = useRouter()
@@ -22,11 +23,6 @@ export const Form: React.FC = (): React.ReactNode => {
     password: 'Pass1234@'
   }
 
-  const validateEmail = (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    return emailRegex.test(email)
-  }
-
   const validatePassword = (password: string): boolean => {
     const passwordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/
@@ -37,7 +33,7 @@ export const Form: React.FC = (): React.ReactNode => {
     e.preventDefault()
     let valid = true
 
-    if (!validateEmail(email)) {
+    if (emailValidator(email!)) {
       setEmailError(
         'E-mail inválido. Insira um endereço de e-mail no formato correto'
       )

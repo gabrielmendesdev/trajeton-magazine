@@ -5,6 +5,7 @@ import Text from '@/app/components/Text'
 import { useRecoverPasswordModal } from '@/app/context/recoverPasswordModal'
 import { Button, Label, Modal, TextInput } from 'flowbite-react'
 import { NextRecoverPasswordModal } from './nextRecoverPasswordModal'
+import { emailValidator } from '@/app/utils/emailValidator'
 
 export const RecoverPasswordModal: React.FC = ({}): React.ReactNode => {
   const { showModal, closeModal } = useRecoverPasswordModal()
@@ -17,13 +18,7 @@ export const RecoverPasswordModal: React.FC = ({}): React.ReactNode => {
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value)
-    setIsEmailValid(validateEmail(e.target.value))
-  }
-
-  const validateEmail = (email: string) => {
-    // Simple email validation regex
-    const regExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    return regExp.test(email)
+    setIsEmailValid(emailValidator(e.target.value))
   }
 
   const handleSubmit = () => {
