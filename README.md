@@ -3,7 +3,7 @@
 Esse projeto foi desenvolvido para a etapa teste do processo seletivo da Undefined Technology.
 O projeto foi desenvolvido utilizando Nextjs e tailwind, com algumas outras tecnologias.
 
-Para acessar o site e gerar um fake token nos cookies:
+Para acessar a rota privada e gerar um fake token nos cookies:
 Email: usertest1@mail.com
 Password: Pass1234@
 
