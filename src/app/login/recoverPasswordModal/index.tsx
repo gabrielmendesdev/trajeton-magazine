@@ -63,8 +63,7 @@ export const RecoverPasswordModal: React.FC = ({}): React.ReactNode => {
         </Modal.Body>
         <Modal.Footer>
           <Button
-            color="warning"
-            className="w-full text-center"
+            className="w-full text-center bg-orange-500"
             onClick={handleSubmit}
           >
             Enviar

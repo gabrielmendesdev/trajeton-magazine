@@ -131,7 +131,7 @@ export default function Component() {
             <li>Não use uma senha igual a anterior</li>
           </ul>
         </div>
-        <Button type="submit" className="bg-orange-500">
+        <Button type="submit" className="bg-orange-600">
           Redefinir Senha
         </Button>
       </form>
