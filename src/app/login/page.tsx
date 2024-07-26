@@ -55,7 +55,7 @@ export default function Login() {
           />
         </div>
       </div>
-      <RecoverPasswordModal show={false} />
+      <RecoverPasswordModal />
     </ModalProvider>
   )
 }

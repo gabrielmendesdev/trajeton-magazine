@@ -14,7 +14,7 @@ export const NextRecoverPasswordModal: React.FC<RecoverPasswordModalProps> = ({
 }): React.ReactNode => {
   const router = useRouter()
   const handleSubmit = () => {
-    router.push('/recover-password')
+    router.push('/email-recover-password')
   }
 
   return (
