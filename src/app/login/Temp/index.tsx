@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Text from '@/app/components/Text'
 import { useRecoverPasswordModal } from '@/app/context/RecoverPasswordModal'
 import { Button, Label, Modal, TextInput } from 'flowbite-react'
-import { NextRecoverPasswordModal } from './NextRecoverPasswordModal'
+import { NextRecoverPasswordModal } from './NextTemp'
 import { emailValidator } from '@/app/utils/emailValidator'
 
 export const RecoverPasswordModal: React.FC = ({}): React.ReactNode => {

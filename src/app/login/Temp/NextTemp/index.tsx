@@ -5,13 +5,13 @@ import Text from '@/app/components/Text'
 import { Button, Modal } from 'flowbite-react'
 import { useRouter } from 'next/navigation'
 
-interface RecoverPasswordModalProps {
+interface NextRecoverPasswordModalProps {
   showModal: boolean
 }
 
-export const NextRecoverPasswordModal: React.FC<RecoverPasswordModalProps> = ({
-  showModal
-}): React.ReactNode => {
+export const NextRecoverPasswordModal: React.FC<
+  NextRecoverPasswordModalProps
+> = ({ showModal }): React.ReactNode => {
   const router = useRouter()
   const handleSubmit = () => {
     router.push('/email-recover-password')
