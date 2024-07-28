@@ -2,6 +2,8 @@
 
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
+import { SideBar } from './components/SideBar'
+import { NavBar } from './components/NavBar'
 
 const Home = () => {
   const router = useRouter()
@@ -13,11 +15,11 @@ const Home = () => {
   }
 
   return (
-    <div>
-      <p>HOMEPAGE</p>
-      <button onClick={logout} className="bg-red-500">
-        Logout
-      </button>
+    <div className="flex">
+      <SideBar />
+      <div className="flex-1">
+        <NavBar />
+      </div>
     </div>
   )
 }
