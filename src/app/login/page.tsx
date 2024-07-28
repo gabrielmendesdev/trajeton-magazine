@@ -8,7 +8,7 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
-import { ModalProvider } from '../context/recoverPasswordModal'
+import { ModalProvider } from '../context/RecoverPasswordModal'
 import { RecoverPasswordModal } from './recoverPasswordModal'
 
 export default function Login() {

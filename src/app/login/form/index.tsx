@@ -5,7 +5,7 @@ import Text from '@/app/components/Text'
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react'
 import { useRouter } from 'next/navigation'
 import Cookies from 'js-cookie'
-import { useRecoverPasswordModal } from '@/app/context/recoverPasswordModal'
+import { useRecoverPasswordModal } from '@/app/context/RecoverPasswordModal'
 import { emailValidator } from '@/app/utils/emailValidator'
 
 export const Form: React.FC = (): React.ReactNode => {

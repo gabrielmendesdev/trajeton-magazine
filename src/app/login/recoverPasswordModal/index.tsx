@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import Text from '@/app/components/Text'
-import { useRecoverPasswordModal } from '@/app/context/recoverPasswordModal'
+import { useRecoverPasswordModal } from '@/app/context/RecoverPasswordModal'
 import { Button, Label, Modal, TextInput } from 'flowbite-react'
 import { NextRecoverPasswordModal } from './nextRecoverPasswordModal'
 import { emailValidator } from '@/app/utils/emailValidator'
