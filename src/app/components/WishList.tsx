@@ -9,6 +9,7 @@ import {
   TableRow
 } from 'flowbite-react'
 import { PaginationComponent } from './Pagination' // Importe o componente de paginação
+import { TrashIcon } from '@heroicons/react/16/solid'
 
 const ITEMS_PER_PAGE = 5
 
@@ -51,12 +52,13 @@ export const WishList: React.FC = (): React.ReactNode => {
               <TableCell>{pedido.formOfPayment}</TableCell>
               <TableCell>{pedido.status}</TableCell>
               <TableCell>
-                <a
-                  href="#"
-                  className="font-medium text-cyan-600 hover:underline dark:text-cyan-500"
-                >
-                  Editar
-                </a>
+                <button className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
+                  {pedido.status === 'Entregue' ? (
+                    <TrashIcon className="text-gray-800 w-4 m-auto" />
+                  ) : (
+                    '-'
+                  )}
+                </button>
               </TableCell>
             </TableRow>
           ))}
