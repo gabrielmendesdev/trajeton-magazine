@@ -1,13 +1,13 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react'
 
-interface recoverPasswordModalProps {
+interface RecoverPasswordModalProps {
   showModal: boolean
   openModal: () => void
   closeModal: () => void
 }
 
-const recoverPasswordModal = createContext<
-  recoverPasswordModalProps | undefined
+const RecoverPasswordModal = createContext<
+  RecoverPasswordModalProps | undefined
 >(undefined)
 
 export const ModalProvider: React.FC<{ children: ReactNode }> = ({
@@ -18,14 +18,14 @@ export const ModalProvider: React.FC<{ children: ReactNode }> = ({
   const closeModal = () => setShowModal(false)
 
   return (
-    <recoverPasswordModal.Provider value={{ showModal, openModal, closeModal }}>
+    <RecoverPasswordModal.Provider value={{ showModal, openModal, closeModal }}>
       {children}
-    </recoverPasswordModal.Provider>
+    </RecoverPasswordModal.Provider>
   )
 }
 
-export const useRecoverPasswordModal = (): recoverPasswordModalProps => {
-  const context = useContext(recoverPasswordModal)
+export const useRecoverPasswordModal = (): RecoverPasswordModalProps => {
+  const context = useContext(RecoverPasswordModal)
   if (context === undefined) {
     throw new Error(
       'useRecoverPasswordModal must be used within a ModalProvider'
