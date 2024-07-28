@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
 import { ModalProvider } from '../context/RecoverPasswordModal'
-import { RecoverPasswordModal } from './Temp'
+import { RecoverPasswordModal } from './RecoverPasswordModal'
 
 export default function Login() {
   const [isMobile, setIsMobile] = useState(false)
