@@ -11,17 +11,10 @@ import {
 import { PaginationComponent } from './Pagination'
 import { TrashIcon } from '@heroicons/react/16/solid'
 import axios from 'axios'
+import { formatDate } from '../utils/formatDate'
+import { tableHeaders } from '../utils/tableHeaders'
 
-const ITEMS_PER_PAGE = 5
-
-// Função para converter a data no formato YYYYMMDD para YYYY-MM-DD
-const formatDate = (dateNumber: number) => {
-  const str = dateNumber.toString()
-  const year = str.substring(0, 4)
-  const month = str.substring(4, 6)
-  const day = str.substring(6, 8)
-  return `${year}-${month}-${day}`
-}
+const itemsPerPage = 5
 
 export const WishList: React.FC = (): React.ReactNode => {
   const { pedidos, setPedidos } = usePedido() // Assumindo que usePedido fornece setPedidos
@@ -38,11 +31,11 @@ export const WishList: React.FC = (): React.ReactNode => {
   }
 
   // Número total de páginas
-  const totalPages = Math.ceil(pedidos.length / ITEMS_PER_PAGE)
+  const totalPages = Math.ceil(pedidos.length / itemsPerPage)
 
   // Calcular índices dos pedidos a serem exibidos
-  const indexOfLastPedido = currentPage * ITEMS_PER_PAGE
-  const indexOfFirstPedido = indexOfLastPedido - ITEMS_PER_PAGE
+  const indexOfLastPedido = currentPage * itemsPerPage
+  const indexOfFirstPedido = indexOfLastPedido - itemsPerPage
   const currentPedidos = pedidos.slice(indexOfFirstPedido, indexOfLastPedido)
 
   const onPageChange = (page: number) => setCurrentPage(page)
@@ -61,12 +54,9 @@ export const WishList: React.FC = (): React.ReactNode => {
     <div className="flex flex-col overflow-x-auto">
       <Table>
         <TableHead className="text-center">
-          <TableHeadCell>Núm. Pedido</TableHeadCell>
-          <TableHeadCell>Valor</TableHeadCell>
-          <TableHeadCell>Data</TableHeadCell>
-          <TableHeadCell>Forma de pagamento</TableHeadCell>
-          <TableHeadCell>Status</TableHeadCell>
-          <TableHeadCell>Ação</TableHeadCell>
+          {tableHeaders.map((header, index) => (
+            <TableHeadCell key={index}>{header}</TableHeadCell>
+          ))}
         </TableHead>
         <TableBody className="divide-y text-center">
           {currentPedidos.map((pedido) => (
