@@ -45,7 +45,7 @@ export const ListDesktop: React.FC<ListDesktopProps> = ({
             <TableCell>
               {pedido.status === 'Entregue' ? (
                 <button
-                  className="font-medium text-cyan-600 hover:underline dark:text-cyan-500 p-3"
+                  className="font-medium text-cyan-600 hover:underline dark:text-cyan-500"
                   onClick={() => handleOpenModal(pedido.id)}
                 >
                   <TrashIcon className="text-gray-800 w-4 m-auto" />

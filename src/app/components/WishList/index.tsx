@@ -9,7 +9,7 @@ import {
   TableHeadCell,
   TableRow
 } from 'flowbite-react'
-import { PaginationComponent } from '../Pagination'
+import { PaginationComponent } from './Pagination'
 import { TrashIcon } from '@heroicons/react/16/solid'
 import axios from 'axios'
 import { formatDate } from '../../utils/formatDate'
