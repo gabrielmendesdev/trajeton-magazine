@@ -19,7 +19,9 @@ export const WishList: React.FC = (): React.ReactNode => {
 
   const fetchPedidos = async () => {
     try {
-      const response = await axios.get('http://localhost:5245/api/pedido')
+      const response = await axios.get(
+        'https://trajetonapi.azurewebsites.net/api/pedido'
+      )
       setPedidos(response.data.dados)
     } catch (error) {
       console.error('Erro ao buscar pedidos:', error)
@@ -35,7 +37,7 @@ export const WishList: React.FC = (): React.ReactNode => {
 
   const handleInativarPedido = async (id: number) => {
     try {
-      await axios.put(`http://localhost:5245/api/pedido/${id}`)
+      await axios.put(`https://trajetonapi.azurewebsites.net/api/pedido/${id}`)
       fetchPedidos()
       setOpenModal(false)
     } catch (error) {

@@ -35,7 +35,9 @@ export const PedidoProvider: React.FC<PedidoProviderProps> = ({ children }) => {
   useEffect(() => {
     const fetchPedidos = async () => {
       try {
-        const response = await axios.get('http://localhost:5245/api/pedido')
+        const response = await axios.get(
+          'https://trajetonapi.azurewebsites.net/api/pedido'
+        )
         console.log(response.data.dados)
         setPedidos(response.data.dados)
       } catch (error) {
