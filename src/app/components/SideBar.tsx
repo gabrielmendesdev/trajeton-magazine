@@ -15,7 +15,7 @@ import Image from 'next/image'
 
 export function SideBar() {
   return (
-    <Sidebar aria-label="Sidebar" className="h-dvh w-max">
+    <Sidebar aria-label="Sidebar" className="h-dvh w-max hidden md:block">
       <Image src={TrajetonLogo} width={80} alt="Trajeton Logo" />
       <Sidebar.Items>
         <Sidebar.ItemGroup className="sidebar-item-no-text">

@@ -16,6 +16,19 @@ interface ListDesktopProps {
   handleOpenModal: (id: number) => void
 }
 
+const getStatusColorClass = (status: string) => {
+  switch (status) {
+    case 'Entregue':
+      return 'bg-green-300'
+    case 'Em Entrega':
+      return 'bg-red-300'
+    case 'Em preparação':
+      return 'bg-blue-500'
+    default:
+      return 'bg-gray-500'
+  }
+}
+
 export const ListDesktop: React.FC<ListDesktopProps> = ({
   pedidos,
   handleOpenModal
@@ -41,11 +54,15 @@ export const ListDesktop: React.FC<ListDesktopProps> = ({
                 : '-'}
             </TableCell>
             <TableCell>{pedido.formOfPayment}</TableCell>
-            <TableCell>{pedido.status}</TableCell>
+            <TableCell
+              className={`font-medium text-white hover:underline dark:text-white p-2 rounded ${getStatusColorClass(pedido.status)}`}
+            >
+              {pedido.status}
+            </TableCell>
             <TableCell>
               {pedido.status === 'Entregue' ? (
                 <button
-                  className="font-medium text-cyan-600 hover:underline dark:text-cyan-500"
+                  className="font-medium text-cyan-600 hover:underline dark:text-cyan-500 "
                   onClick={() => handleOpenModal(pedido.id)}
                 >
                   <TrashIcon className="text-gray-800 w-4 m-auto" />

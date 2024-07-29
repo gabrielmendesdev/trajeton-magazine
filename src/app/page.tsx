@@ -12,6 +12,7 @@ import {
 } from '@heroicons/react/16/solid'
 import { PedidoProvider } from './context/PedidoContext'
 import { WishList } from './components/WishList'
+import { Metric } from './components/Metric'
 
 const Home = () => {
   const router = useRouter()
@@ -53,6 +54,7 @@ const Home = () => {
                 onClick={() => router.push('lista-escolar')}
               />
             </div>
+            <Metric />
             <div>
               <WishList />
             </div>

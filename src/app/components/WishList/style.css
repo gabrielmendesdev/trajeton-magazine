@@ -1,0 +1,7 @@
+/* Adicione isso ao seu arquivo CSS */
+@media (max-width: 767px) {
+  /* 'md' breakpoint é 768px por padrão no Tailwind */
+  button:not(.rounded-r-lg):not(.rounded-l-lg) {
+    display: none;
+  }
+}

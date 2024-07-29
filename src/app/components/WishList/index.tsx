@@ -1,22 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { usePedido } from '../../context/PedidoContext'
-import {
-  Card,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeadCell,
-  TableRow
-} from 'flowbite-react'
 import { PaginationComponent } from './Pagination'
-import { TrashIcon } from '@heroicons/react/16/solid'
 import axios from 'axios'
-import { formatDate } from '../../utils/formatDate'
-import { tableHeaders } from '../../utils/tableHeaders'
 import { DeleteModal } from './DeleteModal'
 import { ListMobile } from './ListMobile'
 import { ListDesktop } from './ListDesktop'
+import './style.css'
 
 const itemsPerPage = 5
 

@@ -1,7 +1,6 @@
 'use client'
 
 import { Pagination } from 'flowbite-react'
-import './style.css'
 
 interface PaginationComponentProps {
   currentPage: number
@@ -23,7 +22,7 @@ export function PaginationComponent({
         totalPages={totalPages}
         onPageChange={onPageChange}
         showIcons
-        className="m-0"
+        className="m-auto md:m-0"
       />
     </div>
   )

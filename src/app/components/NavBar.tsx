@@ -7,11 +7,11 @@ import Text from './Text'
 export function NavBar() {
   return (
     <Navbar fluid rounded className="bg-blue-900">
-      <div className="w-full grid grid-cols-5 items-center">
-        <div className="col-span-4">
+      <div className="w-80 m-auto md:w-full grid grid-cols-5 items-center">
+        <div className="col-span-5 lg:col-span-4">
           <Filter />
         </div>
-        <div className="flex justify-end col-span-1 items-center gap-2">
+        <div className="justify-end col-span-1 items-center gap-2 hidden lg:flex">
           <Text className="text-white">Usuário Admin</Text>
           <Dropdown
             arrowIcon={false}
