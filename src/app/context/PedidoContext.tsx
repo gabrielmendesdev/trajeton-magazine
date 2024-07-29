@@ -11,6 +11,7 @@ import { Pedido } from '../models/pedido'
 interface PedidoContextType {
   pedidos: Pedido[]
   loading: boolean
+  setPedidos: React.Dispatch<React.SetStateAction<Pedido[]>>
 }
 
 const PedidoContext = createContext<PedidoContextType | undefined>(undefined)
@@ -48,7 +49,7 @@ export const PedidoProvider: React.FC<PedidoProviderProps> = ({ children }) => {
   }, [])
 
   return (
-    <PedidoContext.Provider value={{ pedidos, loading }}>
+    <PedidoContext.Provider value={{ pedidos, loading, setPedidos }}>
       {children}
     </PedidoContext.Provider>
   )
