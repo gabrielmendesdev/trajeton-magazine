@@ -20,6 +20,9 @@
     "react": "^18",
     "react-dom": "^18"
   },
+  "engines": {
+    "node": "18.17.1"
+  },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
